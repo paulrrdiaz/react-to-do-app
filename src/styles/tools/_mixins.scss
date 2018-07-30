@@ -1,0 +1,126 @@
+@mixin font-size($sizeValue: 1.6, $line: $sizeValue * 1.5){
+  font-size: ($sizeValue * 1) + px;
+  line-height: ($line * 1) + px;
+  font-size: ($sizeValue / 10) + rem;
+  line-height: ($line / 10) + rem;
+}
+
+@mixin font-amatic() {
+  font-family: 'Amatic SC', cursive;
+}
+
+@mixin font-rajdhani() {
+  font-family: 'Rajdhani', sans-serif;
+}
+
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+@mixin transition($properties...) {
+	@if length($properties) >= 1 {
+    @include css3-prefix("transition", $properties);
+  }
+
+  @else {
+    @include css3-prefix("transition",  "all 0.2s ease-in-out 0s");
+  }
+}
+
+@mixin opacity($opacity: 0.5) {
+	$opacityMultiplied: ($opacity * 100);
+
+	filter: alpha(opacity=$opacityMultiplied);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $opacityMultiplied + ")";
+	@include css3-prefix("opacity", $opacity);
+}
+
+@mixin clearfix() {
+	&:before,
+	&:after {
+	    content: "";
+	    display: table;
+	}
+	&:after {
+	    clear: both;
+	}
+}
+
+@mixin border-radius($radius: 3px) {
+	@include css3-prefix("border-radius", $radius);
+}
+
+@mixin box-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0,0,0,.4), $inset: "") {
+	@if ($inset != "") {
+		@include css3-prefix("box-shadow", $inset $x $y $blur $color);
+	} @else {
+		@include css3-prefix("box-shadow", $x $y $blur $color);
+	}
+}
+
+@mixin transform($params) {
+	@include css3-prefix("transform", $params);
+}
+
+@mixin transform-origin($params) {
+  @include css3-prefix("transform-origin", $params);
+}
+
+@mixin linear-gradient($direction, $color-stops...) {
+  @if is-direction($direction) == false {
+    $color-stops: $direction, $color-stops;
+    $direction: 180deg;
+  }
+  background: nth(nth($color-stops, 1), 1);
+  background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+  background: linear-gradient($direction, $color-stops);
+}
+
+@mixin breakpoint($point) {
+	@if $point == desktop {
+		@media (min-width: 70em) { @content ; }
+  }
+	@else if $point == laptop {
+		@media (min-width: 64em) { @content ; }
+  }
+	@else if $point == tablet {
+		@media (min-width: 50em) { @content ; }
+  }
+	@else if $point == minHeight {
+		@media screen and (max-height: 730px)  { @content ; }
+  }
+}
+
+@mixin placeholder-color($color) {
+	&::-webkit-input-placeholder,
+	&:-moz-placeholder,
+	&::-moz-placeholder,
+	&:-ms-input-placeholder {
+		color: $color;
+	}
+}
+
+@mixin display-flex() {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+@mixin flex-wrap($param) {
+	-ms-flex-wrap: $param;
+	-webkit-flex-wrap: $param;
+  flex-wrap: $param;
+}
+
+@mixin box-sizing($param) {
+	-moz-box-sizing: $param;
+  -webkit-box-sizing: $param;
+  box-sizing: $param;
+}
