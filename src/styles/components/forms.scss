@@ -1,0 +1,19 @@
+.form-group-icon {
+  position: relative;
+
+  .icon {
+    cursor: pointer;
+    position: absolute;
+    right: 6px;
+    top: 2px;
+    @include font-size(24)
+  }
+}
+
+.form-input {
+  padding: 10px;
+  height: 40px;
+  line-height: 36px;
+  outline: 0;
+  width: 100%;
+}

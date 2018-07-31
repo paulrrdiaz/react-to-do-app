@@ -1,0 +1,45 @@
+.tasks {
+  flex: 2.5;
+}
+
+.tasks-title {
+  @include font-amatic();
+  @include font-size(40);
+  margin-bottom: 20px;
+}
+
+.tasks-list {
+  @include display-flex();
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.task {
+  border: 1px solid $grey1;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 31%;
+}
+
+.status {
+  .icon {
+    @include opacity(.5);
+    margin: 0 5px;
+
+    &.active {
+      @include opacity(1);
+    }
+  }
+}
+
+.status-todo {
+  color: $blue;
+}
+
+.status-doing {
+  color: $green;
+}
+
+.status-done {
+  color: $red;
+}

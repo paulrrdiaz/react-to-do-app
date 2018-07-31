@@ -1,9 +1,15 @@
-export const INCREMENT = 'INCREMENT'
+import v4 from 'uuid/v4'
+export const ADD_TASK = 'ADD_TASK'
 export const DECREMENT = 'DECREMENT'
 
-export const increment = () => {
+export const addTask = (name) => {
   return {
-    type: INCREMENT,
+    type: ADD_TASK,
+    task: {
+      id: v4(),
+      name,
+      filter: 'TO_DO',
+    }
   }
 }
 

@@ -1,9 +1,9 @@
 .fade-enter-active,
-.fade-leave-active {
-  @include transition(opacity .5s);
+.fade-exit-active {
+  @include transition(opacity .5s ease-in);
 }
 
 .fade-enter,
-.fade-leave-to {
+.fade-exit {
   @include opacity(0);
 }

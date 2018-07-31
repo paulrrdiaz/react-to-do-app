@@ -1,0 +1,34 @@
+.sidebar {
+  flex: 1;
+  margin-right: 30px;
+
+  .sidebar-form {
+    margin-bottom: 20px;
+  }
+
+  .filters {
+    @include display-flex();
+    @include font-size(20);
+    flex-direction: column;
+  }
+
+  .filter {
+    vertical-align: middle;
+
+    .icon {
+      margin-right: 5px;
+    }
+  }
+
+  .filter-todo {
+    color: $blue;
+  }
+
+  .filter-doing {
+    color: $green;
+  }
+
+  .filter-done {
+    color: $red;
+  }
+}

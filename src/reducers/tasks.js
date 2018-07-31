@@ -1,11 +1,9 @@
-import { INCREMENT, DECREMENT } from '../actions'
+import { ADD_TASK } from '../actions'
 
-const number = (state = 0, action) => {
+const number = (state = [], action) => {
   switch (action.type) {
-    case INCREMENT:
-      return state + 1
-    case DECREMENT:
-      return state - 1
+    case ADD_TASK:
+      return [action.task, ...state]
     default:
       return state
   }
