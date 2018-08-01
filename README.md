@@ -1,5 +1,7 @@
-# React quickstart
-For a React application
+# React To Do App
+This example was created in order to test some React skills for [Area51 React course](https://github.com/Area51TrainingCenter/React-group-2)
+You can see the demo right here: [https://react-redux-to-do-app.netlify.com/](https://react-redux-to-do-app.netlify.com/)
+
 Just run:
 ```console
 npm install
@@ -10,8 +12,6 @@ You'll find
 - React
 - Redux
 - React Redux
-- [Classnames](https://github.com/JedWatson/classnames)
+- React Router Dom
 
-Also you can work with [ITCSS](https://github.com/ahmadajmi/awesome-itcss)
-
-If you want to see more details follow [this tutorial](https://gist.github.com/paulrrdiaz/f5dcbdb6bd8f997a21f2961ddddb6a68)
+*Powered by [react-quickstart](https://github.com/paulrrdiaz/react-quickstart)*
