@@ -1,9 +1,18 @@
-.fade-enter-active,
-.fade-exit-active {
-  @include transition(opacity .5s ease-in);
+.fade-enter {
+  @include opacity(.01);
 }
 
-.fade-enter,
+.fade-enter-active {
+  @include opacity(1);
+  transition: opacity 500ms ease-in;
+}
+
 .fade-exit {
-  @include opacity(0);
+  position: absolute;
+  @include opacity(.01);
+}
+
+.fade-exit-active {
+  @include opacity(.01);
+  transition: opacity 500ms ease-in;
 }

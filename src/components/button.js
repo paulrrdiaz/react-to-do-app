@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-const Button = ({primary, error, handleClick, children}) => {
+const Button = ({submit, primary, error, handleClick, children}) => {
   const className = classnames({
     btn: true,
     'btn-primary': primary,
@@ -10,6 +10,7 @@ const Button = ({primary, error, handleClick, children}) => {
 
   return <button
     className={className}
+    type={submit ? 'submit' : 'button'}
     onClick={() => handleClick && handleClick()}>{children}</button>
 }
 

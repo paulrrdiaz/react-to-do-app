@@ -4,42 +4,72 @@
 
 .tasks-title {
   @include font-amatic();
-  @include font-size(40);
+  @include font-size(50);
   margin-bottom: 20px;
 }
 
 .tasks-list {
   @include display-flex();
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .task {
   border: 1px solid $grey1;
-  margin-bottom: 20px;
+  margin: 0 10px 20px;
   padding: 15px;
-  width: 31%;
+  width: 30%;
+
+  &.task-with-description {
+    background-color: rgba($grey1, .3)
+  }
 }
 
-.status {
+
+.task-name {
+  @include font-amatic();
+  @include font-size(30);
+  margin-bottom: 10px;
+}
+
+.task-actions {
+  @include display-flex();
+  justify-content: space-between;
+}
+
+.task-status {
+  @include transition(color .3s linear);
+
   .icon {
     @include opacity(.5);
-    margin: 0 5px;
+    cursor: pointer;
+    margin: 0 2px;
 
     &.active {
       @include opacity(1);
     }
   }
+
+  .status-todo {
+    color: $blue;
+  }
+  
+  .status-doing {
+    color: $green;
+  }
+  
+  .status-done {
+    color: $red;
+  }
 }
 
-.status-todo {
-  color: $blue;
-}
+.task-action {
+  @include transition(color .3s linear);
+  @include font-size(14);
+  color: $grey1;
+  margin: 0 2px;
 
-.status-doing {
-  color: $green;
-}
-
-.status-done {
-  color: $red;
+  &:hover {
+    color: $grey2;
+  }
 }

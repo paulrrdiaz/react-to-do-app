@@ -13,7 +13,13 @@
   }
 
   .filter {
+    @include opacity(.5);
+    color: $grey2;
     vertical-align: middle;
+
+    &.active {
+      @include opacity(1);
+    }
 
     .icon {
       margin-right: 5px;

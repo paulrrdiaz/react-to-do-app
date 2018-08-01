@@ -1,0 +1,24 @@
+.modal {
+  @include display-flex();
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($grey1, .7);
+}
+
+.modal-container {
+  @include box-shadow(0, 0, 10px, 1px, rgba($grey2, .3));
+  @include border-radius();
+  background-color: $white;
+  padding: 20px;
+  width: 40vw;
+}
+
+.modal-title {
+  @include font-size(30);
+  margin-bottom: 20px;
+}

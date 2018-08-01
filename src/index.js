@@ -2,11 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { HashRouter, Route, Switch } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 import { throttle } from 'lodash'
 import { loadState, saveState } from './localStorage'
 
 import Home from './pages/Home'
+import EditTask from './containers/EditTask'
+import RemoveTask from './components/removeTask'
 import reducers from './reducers'
 
 import './styles/index.scss'
@@ -30,10 +32,16 @@ root ? ReactDOM.render(
   <Provider store={store}>
     <HashRouter>
       <div className="wrapper">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/:filter" component={Home} />
-        </Switch>
+        <Route
+          path="/:filter?"
+          component={Home} />
+        <Route
+          exact 
+          path="/:filter/task/:id" 
+          component={EditTask} />
+        <Route
+          path="/:filter/task/:id/delete" 
+          component={RemoveTask} />
       </div>
     </HashRouter>
   </Provider>

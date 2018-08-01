@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import { addTask } from '../actions'
 
 class Sidebar extends Component {
   onSubmit = e => {
     e.preventDefault();
-    this.props.addTask(this.taskName.value);
+    const { match: { params: { filter }}} = this.props;
+    this.props.addTask(this.taskName.value, filter);
     this.taskName.value = '';
   }
 
   render() {
-    console.log(this.props.match);
-    
     return (
       <div className="sidebar">
         <form className="sidebar-form" onSubmit={this.onSubmit}>
@@ -26,11 +25,24 @@ class Sidebar extends Component {
           </div>
         </form>
         <div className="filters">
-          <NavLink className="filter filter-todo" activeClassName="active" to="/todo">
+          <NavLink
+            className="filter"
+            exact
+            activeClassName="active"
+            to="/">
+            <i className="icon fas fa-dot-circle" />
+            All
+          </NavLink>
+          <NavLink
+            className="filter filter-todo"
+            activeClassName="active"
+            to="/todo">
             <i className="icon fas fa-dot-circle" />
             To Do
           </NavLink>
-          <NavLink className="filter filter-doing" activeClassName="active" to="/doing">
+          <NavLink
+            className="filter filter-doing"
+            activeClassName="active" to="/doing">
             <i className="icon fas fa-dot-circle" />
             Doing
           </NavLink>
@@ -44,4 +56,4 @@ class Sidebar extends Component {
   }
 }
 
-export default connect(null, { addTask })(Sidebar)
+export default withRouter(connect(null, { addTask })(Sidebar))

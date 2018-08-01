@@ -10,10 +10,45 @@
   }
 }
 
-.form-input {
+.form-group {
+  margin-bottom: 20px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-group-actions {
+  @include display-flex();
+  justify-content: flex-end;
+
+  > .btn {
+    margin-left: 10px;
+  }
+}
+
+.form-input,
+%form-input {
+  @include font-rajdhani();
+  @include transition();
+  border: 1px solid rgba($grey1, .5);
+  color: $blue;
   padding: 10px;
   height: 40px;
   line-height: 36px;
   outline: 0;
   width: 100%;
+
+  &:hover {
+    border-color: rgba($grey1, 1);
+  }
+
+  &:focus {
+    border-color: $blue;
+  }
+}
+
+.form-textarea {
+  @extend %form-input;
+  height: 180px;
 }
